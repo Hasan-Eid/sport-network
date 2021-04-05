@@ -1,0 +1,38 @@
+<div class="mainDiv">
+    <div class="storySection">
+            <div class="storiesDiv">
+                    <div>
+                            <img class='user' src="../../../assets/r1.jpg"  >
+                            <span class="yourStory" > your Story </span>
+                    </div>
+                    <div *ngFor='let story of stories'>
+                            <img #imgStory (click)='showStory(imgStory)' class='user' [src]="'../../../assets/'+story"  >
+                            <span class="storyName"> hasan eid </span>
+                    </div>
+                    
+            </div>
+            <div class="storyShowSection">
+                
+               <img class="imageStory" src="" alt="">
+               <div class="timeline2">
+                
+               </div>
+               <div class="timeline"></div>
+               <a (click)='close()' class="close" >
+                    <span aria-hidden="true">&times;</span>
+
+               </a>
+            </div>
+            <div class="postsSection">
+                <app-post *ngFor="let post of posts" [post]="post">
+                </app-post>
+            </div>
+            
+    </div>
+    
+    
+</div>
+<div class="blurDiv"></div>
+
+
+

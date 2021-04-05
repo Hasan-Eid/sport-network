@@ -1,0 +1,139 @@
+.mainDiv{
+    position: absolute;
+    left: 0px;
+    top: -5%;
+    width: 100%;
+    height: 105%;
+    overflow: auto;
+    filter: drop-shadow(0px 0px 6px black);
+}
+.mainDiv::-webkit-scrollbar {
+    width:  5px;
+  }
+.close{
+    position: absolute;
+    left: 90%;
+    color: white;
+    font-size: xx-large;
+    margin-top: 10px;
+}
+.storyName{
+color: white;
+font-size: 10px;
+}
+.timeline2{
+    position: absolute;
+    background: rgba(218, 213, 213, 0.767);
+    width: 80%;
+    top: 9px;
+    margin-inline: 50px;
+    height: 2px;
+}
+.timeline
+{
+    position: absolute;
+    background: greenyellow;
+    width: 80%;
+    top: 9px;
+    margin-inline: 50px;
+    height: 2px;
+
+}
+.yourStory{
+    top: -50%;
+    color: white;
+    position: relative;
+    font-family: cursive;
+}
+
+.imageSection{
+    
+} 
+.storySection{
+
+    position: relative;
+    top: 5%;
+
+}
+
+.storyShowSection{
+    position: relative;
+    display: none;
+    width: fit-content;
+    margin-left: 25%;
+
+}
+.imageStory{
+    width: 500px;
+    height: 300px;
+    border-radius: 50px;
+    border: solid #5f1616 1px;
+    display: none;
+    object-fit: contain
+}
+
+.postsSection{
+    width: 70%;
+    display: block;
+    left: 24%;
+    margin-top: 10px;
+    position: relative;
+    padding: 20px;
+}
+.storiesDiv{
+    margin-top: 10px;
+    overflow: auto;
+    background: #00000054;
+    width: 616px;
+    display: flex;
+    position: relative;
+    text-align: center;
+    border: solid 2px white;
+    padding: 5px 0px 0px 0px;
+    border-radius: 60px;
+    left: 25%;
+}
+
+::-webkit-scrollbar {
+    height:  5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 50px #adb5bd; 
+    border-radius: 10px;
+    margin-inline: 60px
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #c209b9; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5d8006; 
+  }
+  
+.blurDiv{ 
+    z-index: -1;
+    background-image: url(../../../assets/sports.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    filter: blur(10px)
+
+}
+.user{
+    border-radius: 50%;
+    margin-inline: 6px;
+    width: 90px;
+    height: 90px;
+    border: solid 1px #0dc8ee
+
+}
