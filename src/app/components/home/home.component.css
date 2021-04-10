@@ -7,6 +7,13 @@
     overflow: auto;
     filter: drop-shadow(0px 0px 6px black);
 }
+.goTopBtn{
+    position: absolute;
+    right: 2%;
+    top: 5%;
+    z-index: 9999;
+    border-radius: 50%;
+}
 .mainDiv::-webkit-scrollbar {
     width:  5px;
   }
@@ -49,12 +56,123 @@ font-size: 10px;
 .imageSection{
     
 } 
-.storySection{
+.createPostLink:hover{
+    text-shadow: 0px 0px 5px white
+}
+.postButtons{
+    display: grid;
+    height: 250px;
+    width: 10%;
+    align-content: space-around;
+    margin-left: -3px;
+    z-index: 1;
+    padding-block: 10px;
+
+}
+
+.selectedImagesDiv{
+}
+.selectedImagesDiv img{
+object-fit: contain;
+margin: 5px;
+width:90px;
+ height:90px;
+}
+.writtenContentDiv{
+    font-family: 'Times New Roman';
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: dashed 1px;
+
+}
+
+.postButtons button{
+    font-family: 'Times New Roman';
+    height: 50px;
+    padding: 0px 10px;
+    border: none;
+    min-width: 65px;
+    border-radius: 0px 25px 25px 0px
+
+}
+.postButtons button:hover{
+    animation: buttonframe .3s forwards;
+    
+}
+.postContentTextarea{
+    padding: 10px;
+    border: solid 1px;
+    resize: none;
+    outline: none;
+    border-radius: 10px;
+
+}
+@keyframes example {
+    0%   {transform: scale(0.01);opacity: 0;}
+    100%  {transform: scale(1);opacity: 1;}
+
+}
+@keyframes  buttonframe{
+    from {padding: 0px 10px;}
+    to {padding: 0px 20px;}
+  }
+
+.postParts{
+    z-index: 2;
+    max-height: 250px;
+    width: 84%;
+    overflow: auto;
+    font-family: 'Times New Roman';
+    background:#00000054;
+    text-align: center;
+    color: white;
+    border: solid 2px white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    animation: showingCreationSection 1s ease-out;
+
+}
+@keyframes  showingCreationSection{
+    0% {height: 0px;}
+    100% {height: 250px;}
+  }
+@keyframes  hidingCreationSection{
+    0% {height: 250px;}
+    100% {height: 0px;}
+  }
+.createPost{
+    filter: drop-shadow(2px 4px 6px black);
+    display: none;
+    margin-top: 10px;
+    width: 35%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0px);
+
+}
+
+.createPostLink{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    font-family: 'Times New Roman';
+    background:#00000080;
+    text-align: center;
+    color: white;
+    border: solid 2px white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    position: relative;
+    left: 50%;
+    
+    transform: translate(-60%, 0px);
+}
+.showSection{
 
     position: relative;
     top: 5%;
-
-}
+ 
+} 
 
 .storyShowSection{
     position: relative;
@@ -83,7 +201,7 @@ font-size: 10px;
 .storiesDiv{
     margin-top: 10px;
     overflow: auto;
-    background: #00000054;
+    background: #00000080;
     width: 616px;
     display: flex;
     position: relative;
@@ -96,24 +214,26 @@ font-size: 10px;
 
 ::-webkit-scrollbar {
     height:  5px;
+    width:5px;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 50px #adb5bd; 
     border-radius: 10px;
-    margin-inline: 60px
+    margin-inline: 60px;
+    margin-block: 20px;
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #c209b9; 
+    background: #099dc2; 
     border-radius: 10px;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #5d8006; 
+    background: #06596e; 
   }
   
 .blurDiv{ 

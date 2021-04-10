@@ -1,14 +1,17 @@
 .mainDiv{
-    padding: 10px;
-    width: 100%;
-    background: #00000078;
-    position: absolute;
-    border-radius: 20px;
+    position: relative;
     filter: drop-shadow(2px 4px 6px black);
-    top: 2%;
+    top: -54px;
     left: 50%;
     transform: translate(-50%, 0);
-    height: 98%;
+    border: white solid 2px;
+    border-radius: 0px 0px 25px 25px;
+    border-top: none;
+    width: 616px;
+    padding: 30px 10px 100px 10px;
+    background: #00000057;
+    clip-path: url('#clipping1');
+
 
 }
 
@@ -69,6 +72,16 @@
    display: flex;
 }
 
+.showPreviousComments{
+    color: #0dc8ee;
+    font-family: 'Times New Roman';
+    padding: 10px 0px 5px 0px;
+    /* background: linear-gradient(0deg ,#ffffff61, transparent); */
+}
+
+.showPreviousComments:hover{
+    text-shadow: 0px 0px 5px
+}
 .commentDiv{
     width: 80%;
     margin-top: 5px;
@@ -81,8 +94,8 @@
 
 }
 .commentContainer{
-    
-    height: 85%;
+
+    max-height: 399px;
     overflow: auto;
 
 }
@@ -99,7 +112,7 @@
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #c209b9; 
+    background: #0dc8ee; 
     border-radius: 10px;
   }
   

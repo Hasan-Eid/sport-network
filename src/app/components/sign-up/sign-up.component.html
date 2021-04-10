@@ -1,5 +1,5 @@
 <div >
-    <form #form='ngForm' (ngSubmit)='onSubmit(form)' >
+    <form #form='ngForm' (ngSubmit)='signUp(form)' >
 
         <div class=" signUp">
           <img  class="user" src="../assets/user.png" >
@@ -20,4 +20,4 @@
         <button style="color: white;" [disabled]='form.invalid'  type="submit"  >Sign Up</button>
     </form>
   </div>
-
+  <div class="blurDiv"></div>

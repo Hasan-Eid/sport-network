@@ -41,6 +41,7 @@ color: white;
 }
 .content{
     display: -webkit-box;
+    font-family: 'Times New Roman';
     -webkit-line-clamp: 7;
     -webkit-box-orient: vertical;
 }
@@ -138,12 +139,12 @@ color: white;
 }
 .viewMore{
     width: 616px;
-    left: 20px;
     color: chartreuse;
+    left:20px;
     position: absolute;
     display: block;
     padding-top: 10px;
-    height: 53px;
+    height: 56px;
     text-align: center;
     background: #ffffff4f;
     border-radius: 0px 0px 40px 40px;

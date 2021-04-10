@@ -1,5 +1,8 @@
 
 <div class="mainDiv">
+    <div class="showPreviousComments">
+        <a (click)='showPreviousComments()'> Show  previous comments</a>
+    </div>
     <div class="commentContainer">
             <div *ngFor='let comment of comments'>
                     <div class="commentDiv " *ngIf='comment.parent==null'>
@@ -7,7 +10,7 @@
                             <div>
                                 <div class="commentHeader">
                                       <h6>{{comment.userName}}</h6>
-                                      <span class="time">
+                                       <span class="time">
                                             <i class="bi bi-watch"></i>
                                             <span> 1h</span>
                                       </span>
@@ -27,7 +30,7 @@
             </div>
     </div>
     
-
+   
     <div class="writeCommentSection">
         <div>
             <textarea #textarea (input)="commentInput(textarea)" (keyup)='addComment($event,textarea)' class="commentTextarea"   placeholder="write comment ..."></textarea>
@@ -36,4 +39,3 @@
     </div>
 </div>
 
-<!-- <div class="blurDiv"></div> -->

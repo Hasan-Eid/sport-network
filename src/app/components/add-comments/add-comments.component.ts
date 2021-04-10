@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-add-comments',
@@ -6,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-comments.component.css']
 })
 export class AddCommentsComponent implements OnInit {
-
-  constructor() { }
-
+  @Input() postID: any;
+  constructor(private ps:PostService) { }
+  
   comments=[
     {
       userName:'Hasan Eid',
@@ -55,13 +56,20 @@ export class AddCommentsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
-  addComment(e:any,textarea:HTMLTextAreaElement){
   
+  showPreviousComments(){
+    console.log(this.postID +'s')
+    
+
+  }
+  addComment(e:any,textarea:HTMLTextAreaElement){
+    
     if(e.keyCode === 13){
       textarea.style.height='44px'
       // console.log(e.target.value);
+      // this.ps.addComment(profile,trainer,post,body,parent).subscribe(res=>{
+      //   console.log(res)
+      // })
       console.log(textarea.value.trim()+'d')
       textarea.value=''
       textarea.style.height='44px'
@@ -162,7 +170,10 @@ textarea.placeholder="write comment ..."
 textarea.oninput=()=>{
                      this.commentInput(textarea)
                   }
+textarea.onkeyup=(e)=>{
+ this.addComment(e,textarea)
 
+}
 let emoji=document.createElement('i')
 emoji.classList.add("bi", "bi-emoji-smile" ,"emojiIcom")
 

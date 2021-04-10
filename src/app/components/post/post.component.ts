@@ -12,6 +12,7 @@ export class PostComponent implements OnInit {
   liked:boolean=false
   showImages:boolean=false
   shared:boolean=false
+  previousState=false
   constructor() { }
 
   ngOnInit(): void {
@@ -53,7 +54,6 @@ commentInput(textarea:HTMLTextAreaElement){
       this.liked=true
       lk.style.color='chartreuse'
      }
-    console.log(this.post.likes)
   }
 
   share(sh:HTMLElement){
@@ -68,7 +68,6 @@ commentInput(textarea:HTMLTextAreaElement){
      this.shared=true
      sh.style.color='chartreuse'
     }   
-     console.log(this.post.shares)
 
   }
 
@@ -76,12 +75,10 @@ commentInput(textarea:HTMLTextAreaElement){
     if(viewMore.textContent=='.. viewLess ..')
     {
       p.style.display='-webkit-box';
-      console.log('less');
       viewMore.textContent='.. viewMore ..'
     }
     else
     {
-      console.log('more');
       p.style.display='flex';
       viewMore.textContent='.. viewLess ..'
     }
@@ -91,23 +88,25 @@ commentInput(textarea:HTMLTextAreaElement){
   back(secondSectionOfPost:HTMLSpanElement,viewMoreDiv:HTMLDivElement,p:HTMLParagraphElement){
     this.showImages=false
     secondSectionOfPost.style.display='initial'
-     if(viewMoreDiv&&(p.textContent!='')){
+    if(viewMoreDiv.classList.contains('Shown')){
       viewMoreDiv.style.display='block'
-     }
+
+    }
   
   }
   
 
   contentHeight(p:HTMLParagraphElement){
-    console.log(Math.ceil((p.scrollHeight/24))>7)
     return (Math.ceil((p.scrollHeight/24))>7)
   }
   goTocarousel(secondSectionOfPost:HTMLSpanElement,viewMoreDiv:HTMLDivElement){
     this.showImages=true;
     secondSectionOfPost.style.display='none'
-     if(viewMoreDiv){
-      viewMoreDiv.style.display='none'
+     if(viewMoreDiv.classList.contains('shown')){
+      viewMoreDiv.style.display='none';
+      viewMoreDiv.classList.add('shown')
      }
+     
   
   }
 

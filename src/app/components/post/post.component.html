@@ -1,5 +1,5 @@
 <div>
-   <div >
+   <div  >
          <div class="post">
                  <div class="postHearder">
                      <img  class='atheletImage' src="../../../assets/user.png" >
@@ -43,10 +43,10 @@
                              </p>
                              
                      </span>
-                     <div style="display: none" #viewMoreDiv (click)='viewMore(content,aViewMore)' [class]="{hideElement:!contentHeight(content)}"  class="viewMore">
+                     <div  #viewMoreDiv (click)='viewMore(content,aViewMore)' [class]="{hideElement:!contentHeight(content),shown:contentHeight(content)}"  class="viewMore">
                          <a #aViewMore >.. view More ..</a>                            
                      </div>
-                     <ngb-carousel *ngIf="post.images&&showImages" [interval]='1000000'>
+                     <ngb-carousel *ngIf="post.images&&showImages" [interval]='5000'>
                              <ng-template *ngFor='let im of post.images' ngbSlide>
                                  <div class="picsum-img-wrapper">
                                    <img style="object-fit: contain" width="575"  height="350" [src]="im" alt="Random third slide">
@@ -79,17 +79,10 @@
                  </div>
                  
          </div>
-         <div class="addComment" style="clip-path: url('#clipping1')">
-            <app-add-comments></app-add-comments>
-            <!-- <div  class="writeCommentSection">
-              <div>
-                <textarea #textarea  class="commentTextarea" (input)="commentInput(textarea)" (keyup)='addComment($event,textarea)'  placeholder="write comment ..."></textarea>
-                <i  class="bi bi-emoji-smile emojiIcom"></i>        
-                
-          
-              </div>
-            </div> -->
+         <div style="width: 616px">
+          <app-add-comments [postID]="post.id" ></app-add-comments>
          </div>
+        
     </div>      
   </div>
     <svg width='0' height='0'>
@@ -109,11 +102,3 @@
     </svg>
  
 
-
-  <!-- <svg width='0' height='0'>
-    <defs>
-      <clipPath id="clipping">
-        <path d='M -1 85 V 600 H 616 V 2 C 613 12 610 20 593 24 H 17 C 4 22 2 13 -1 -1 Z'></path>
-      </clipPath>
-    </defs>
-  </svg> -->
