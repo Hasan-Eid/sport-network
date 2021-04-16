@@ -45,7 +45,7 @@
                      </span>
                      <div  #viewMoreDiv (click)='viewMore(content,aViewMore)' [class]="{hideElement:!contentHeight(content),shown:contentHeight(content)}"  class="viewMore">
                          <a #aViewMore >.. view More ..</a>                            
-                     </div>
+                     </div> 
                      <ngb-carousel *ngIf="post.images&&showImages" [interval]='5000'>
                              <ng-template *ngFor='let im of post.images' ngbSlide>
                                  <div class="picsum-img-wrapper">

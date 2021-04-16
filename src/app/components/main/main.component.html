@@ -20,17 +20,18 @@
       
        </div>
       </nav>
-      <form  class="form-inline my-2 friendsHide" style="z-index: 2;">
-        <!-- <input name='search' (change)='searchFun(search)' #search='ngModel'ngModel class="form-control mr-sm-2 search" type="search"  placeholder="search..." aria-label="Search">
-        <a >
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </a> -->
-        <div class="input-group mb-3 friendsHide">
+      <form  class="form-inline my-2 friendsHide" style="clip-path: url(#clippingForm);z-index: 2;">
+ 
+        <div class="input-group mb-3 friendsHide divInsideForm">
             <button class="btn btnSearch friendsHide " (click)='searchFun(search,$event)'type="button" >
-                <i class="fa fa-search" aria-hidden="true"></i>
+              <i class="bi bi-search"></i>
             </button>
             <input name='search'  #search='ngModel'ngModel class=" friendsHide form-control  search" type="search"  placeholder="search..." aria-label="Search">
         </div>
+        <a (click)='showNotifications($event)' class="whistle notificationHide">
+          <img width="25"  height="25" [src]="notifications.length>0?'../../../assets/redWhistle.png':'../../../assets/blackWhistle.png'" >
+        </a>
+        
         
     </form>
     </div>
@@ -45,24 +46,47 @@
           <a  class="btn leftbutton" routerLink='workouts' routerLinkActive='active2' [routerLinkActiveOptions]='{exact:true}'  style="width: 210">Worksout</a>
        </div>
        
-       <svg width='0' height='0'>
-        <defs>
-          <clipPath id="clipping">
-            <path d='M 0 0 c 270 -400 315 315 0 600'></path>
-          </clipPath>
-        </defs>
-      </svg>
-      <!-- |namesfilter:search.value -->
        <router-outlet style="padding: 5px" ></router-outlet>
-       <div  class='friendsDiv friendsHide' id="friendsDiv" >
+       <!-- <div  class='friendsDiv friendsHide' id="friendsDiv" >
           <div  class="friend friendsHide" *ngFor='let person of persons | namesfilter:search.value '>
               <img class="user friendsHide" src="../../../assets/user.png" > 
               <span class="friendsHide spanFriends" >{{person.first_name}}</span>
               <button (click)='accept(person.slug)' class="btn btn-primary follow friendsHide">Follow</button>
           </div>
+       </div> -->
+       <div #notificationsDiv  class='notificationsDiv notificationHide'  >
+          <div class="notificationsHearder notificationHide">Notifications</div>
+          <div class="notificationHide notificationList">
+              <div  class="notification notificationHide" *ngFor='let notification of notifications '>
+                  <img class="user notificationHide " [src]="notification.image" >
+                  <div>
+                       <div class=" spanFriends notificationHide">{{notification.content}}</div>
+                       <div class="acceptRemoveButtons notificationHide" [class]="{hideElement:notification.type=='normal'}" >
+                          <button (click)='accept(notification.slug)' class="btn btn-primary follow  notificationHide">Accept</button>    
+                          <button (click)='reject(notification.slug)' class="btn btn-primary follow notificationHide">Reject</button>    
+                       </div>
+                  </div> 
+              </div>
+          </div>
        </div>
+
    </div>
    
  </div>
+
+ <svg width='0' height='0'>
+  <defs>
+    <clipPath id="clipping">
+      <path d='M 0 0 c 270 -400 315 315 0 600'></path>
+    </clipPath>
+  </defs>
+</svg>
+<svg width='0' height='0'>
+ <defs>
+   <clipPath id="clippingForm">
+     <path d='M 0 0 C 241 107 508 116 750 -3'></path>
+   </clipPath>
+ </defs>
+</svg>
 
      

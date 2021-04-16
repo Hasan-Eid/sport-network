@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, ElementRef, Sanitizer } from '@angular/co
 import { post } from 'selenium-webdriver/http';
 import { timeout } from 'q';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { dom } from '@fortawesome/fontawesome-svg-core';
 import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-home',

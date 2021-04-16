@@ -7,15 +7,28 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 })
 export class PostComponent implements OnInit {
   @Input() post: any;
+ 
   @ViewChild('viewMoreDiv')
   viewMoreDiv!: ElementRef<any>; 
   liked:boolean=false
   showImages:boolean=false
   shared:boolean=false
   previousState=false
+  showMoreTimes=0
+  showMoreVar=false
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  contentHeight(p:HTMLParagraphElement){
+    if(this.showMoreVar==false){
+      this.showMoreVar =(Math.ceil((p.scrollHeight/24))>7)
+      console.log((Math.ceil((p.scrollHeight/24))>7)+' from contentheight() '+this.post.id)
+      return (Math.ceil((p.scrollHeight/24))>7)
+    }
+    
+    return true
   }
 
   showComment(postId:any){
@@ -88,24 +101,18 @@ commentInput(textarea:HTMLTextAreaElement){
   back(secondSectionOfPost:HTMLSpanElement,viewMoreDiv:HTMLDivElement,p:HTMLParagraphElement){
     this.showImages=false
     secondSectionOfPost.style.display='initial'
-    if(viewMoreDiv.classList.contains('Shown')){
+    if(viewMoreDiv.classList.contains('shown')){
       viewMoreDiv.style.display='block'
-
     }
   
   }
   
 
-  contentHeight(p:HTMLParagraphElement){
-    return (Math.ceil((p.scrollHeight/24))>7)
-  }
+  
   goTocarousel(secondSectionOfPost:HTMLSpanElement,viewMoreDiv:HTMLDivElement){
     this.showImages=true;
     secondSectionOfPost.style.display='none'
-     if(viewMoreDiv.classList.contains('shown')){
-      viewMoreDiv.style.display='none';
-      viewMoreDiv.classList.add('shown')
-     }
+    viewMoreDiv.style.display='none';
      
   
   }

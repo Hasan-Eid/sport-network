@@ -69,13 +69,15 @@ border-radius: 0px  0px 25px 25px ;
 
 }
 .topDiv a{
-    color: #007bff;
     width: 10%;
     text-align: end;
-    font-size: xx-large;
 }
-.topDiv a:hover{
-    color:#2471bf
+.topDiv a img{
+    width: 50px ;
+    height: 50px;
+}
+.topDiv a img:hover{
+    filter:drop-shadow(0px 0px 5px rgb(0, 102, 255))
 }
 .bottomDiv h4{   
     background: #4598ca;
@@ -86,7 +88,7 @@ border-radius: 0px  0px 25px 25px ;
     margin: 0px;
 
 }
-.topDiv img{
+.profileImage{
     height: 150px;
     width: 150px;
     align-self: flex-end;

@@ -126,6 +126,9 @@ transform: scale(0.9)
     width: 100%
 
 }
+.hideViewMore{
+    display: none
+}
 
 
 .emojiIcom{

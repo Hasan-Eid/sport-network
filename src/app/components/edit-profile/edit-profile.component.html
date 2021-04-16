@@ -22,28 +22,27 @@
                                    <input ngModel #day='ngModel' (change)='changeDay(day,selectmonth)'   placeholder="day" name="day" min="1" max="31" required type="number" class="font">
                                 </div>
                                 <p class="error" *ngIf='(year.touched&&year.invalid)||yearInvalid||(day.touched&&day.invalid)||dayInvalid'>Invalid birthday !!</p>
-
                     </fieldset>
             </div>        
             <div class="carearDiv">
                <label for="carear" class="carear">Sport Career :</label>
                <textarea ngModel #career='ngModel' name="carear"  id="carear" class=" font" cols="30" rows="4"></textarea>
                <label for="hobbies" class="carear">Hobbies</label>
-               <input class="font" ngModel #hobbies='ngModel' name='hobbies'type="text" id="hobbies">
+               <input class="font" ngModel #hobbies='ngModel' name='hobbies' type="text" id="hobbies">
         </div>
             <div class="imageDiv">
                     <img #img src="../../../assets/user.png"  class="user" >
                     <div  aria-label="Basic example">
                         <button type="button" #editPhoto  (click)='imgFile.click()' class="btn  btn-primary">Edit Photo</button>
-                        <input   #imgFile    name='imgFile' accept="image/*" (change)='fileUpload(imgFile,img)' type="file"  hidden>
+                        <input   #imgFile    name='imgFile' accept="image/*" (change)='fileUpload(imgFile)' type="file"  hidden>
                     </div>
             </div>
       </div>
       <div class=' bottomDiv ' >
-        <div class="btn-group" role="group" aria-label="example">
-                        <button type="button" (click)='toMy()'   class="btn btn-primary" >Cancle</button>
-                        <button type="submit" [disabled]='form.invalid'  class="btn btn-primary">Save Changes</button>
-        </div>
+           <div class="btn-group" role="group" aria-label="example">
+                <button type="button" (click)='toMy()'   class="btn btn-primary" >Cancle</button>
+                <button type="submit" [disabled]='form.invalid'  class="btn btn-primary">Save Changes</button>
+          </div>
 
       </div>
     </form>

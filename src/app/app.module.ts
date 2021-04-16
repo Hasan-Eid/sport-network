@@ -25,7 +25,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { GraphQLModule } from './graphql.module';
 import { NamesfilterPipe } from './pipes/namesfilter.pipe';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { FisrtImagesPipe } from './pipes/fisrt-images.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -33,6 +32,8 @@ import { PostComponent } from './components/post/post.component';
 import { AddCommentsComponent } from './components/add-comments/add-comments.component';
 import  {  NgxEmojiPickerModule  }  from  'ngx-emoji-picker';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import { TrainerComponent } from './components/trainer/trainer.component';
+import { TrainerSwitchingComponent } from './components/trainer-switching/trainer-switching.component';
 
 
 @NgModule({
@@ -56,7 +57,9 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart';
     EditProfileComponent,
     FisrtImagesPipe,
     PostComponent,
-    AddCommentsComponent
+    AddCommentsComponent,
+    TrainerComponent,
+    TrainerSwitchingComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,6 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart';
     FormsModule,
     GraphQLModule,
     HttpClientModule,
-    FontAwesomeModule,
     NgbModule,
     PickerModule,
     NgxEmojiPickerModule.forRoot()

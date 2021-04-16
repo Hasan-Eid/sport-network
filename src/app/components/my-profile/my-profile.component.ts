@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApolloServiceService } from 'src/app/services/apollo-service.service';
-import {  faUserEdit } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-my-profile',
@@ -9,10 +8,7 @@ import {  faUserEdit } from '@fortawesome/free-solid-svg-icons';
 })
 export class MyProfileComponent implements OnInit {
   @Output() chooseProfile = new EventEmitter<string>();
-
-
   myProfile:any=[];
-  editProfile=faUserEdit
 
   i='sports.jpg'
   constructor(private as:ApolloServiceService) { }
