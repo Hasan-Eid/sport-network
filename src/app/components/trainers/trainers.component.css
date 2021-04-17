@@ -129,6 +129,7 @@
     width: 70%;
     border: 1px solid #197ea0;
     padding: 5px;
+    font-family: 'Times New Roman';
     background: linear-gradient(-4deg,#f8f9fa2e, transparent);
     border-radius: 25px;
     position: absolute;

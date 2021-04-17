@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css']
 })
-export class PostComponent implements OnInit {
+export class PostComponent implements OnInit , AfterViewInit{
   @Input() post: any;
  
   @ViewChild('viewMoreDiv')
@@ -16,11 +16,14 @@ export class PostComponent implements OnInit {
   previousState=false
   showMoreTimes=0
   showMoreVar=false
-  constructor() { }
+
+  constructor(private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
-
+  ngAfterViewInit() {
+    this.cdr.detectChanges();
+  }
   contentHeight(p:HTMLParagraphElement){
     if(this.showMoreVar==false){
       this.showMoreVar =(Math.ceil((p.scrollHeight/24))>7)

@@ -18,6 +18,10 @@ export class TrainerComponent implements OnInit {
   showDiv!: ElementRef<HTMLDivElement>;
   @ViewChild("buttonsDiv")
   buttonsDiv!: ElementRef<HTMLDivElement>;
+  @ViewChild("photosShowSection")
+  photosShowSection!: ElementRef<HTMLDivElement>;
+   @ViewChild("showSection")
+   showSection!: ElementRef<HTMLDivElement>;
   @Input() trainer: any={};
   @Output() chooseTrainer = new EventEmitter<string>();
   posts:any[]=[]
@@ -28,28 +32,80 @@ export class TrainerComponent implements OnInit {
   constructor(private ts:TrainerService,private ps:PostService) { }
 
   ngOnInit(): void {
+    this.setDefaultForPhoto()
   }
 
+  
+setDefaultForPhoto(){
+  document.onclick = (e)=>{
+    if(this.showDiv.nativeElement.style.display!='none'){
+         if(this.photosShowSection.nativeElement.style.display!='none'){
+                if(!(<HTMLElement>e.target).classList.contains('photoClass') ){
+                     let d=document.getElementsByClassName('clicked')
+                     if(d.length>0){
+                       d[0].className='photoClass'
+                     }
+                  }
+         }
+            
+    }
+   
+  };
+}
+showImage(e:any){
+  e.stopPropagation()
+  console.log(e.target)
+  let d=document.getElementsByClassName('clicked')
+  if(d.length>0){
+            d[0].className='photoClass'
+   }
+  
+   e.target.className='clicked'
+  
+  }
+  hideOtherSections(sectionClass:string){
+
+    let children=this.showSection.nativeElement.children
+    for(let i=0;i<children.length;i++){
+      if(children[i].className!=sectionClass){
+        (<HTMLElement>children[i]).style.display='none'
+      }
+      else{
+        (<HTMLElement>children[i]).style.display='initial'
+
+      }
+    }
+  }
   showPosts(){
     this.showDivFun(0)
+    this.hideOtherSections('postsShowSection')
     this.posts=this.ps.getTrainerPosts(this.trainer.slug)
     console.log(this.posts)
    }
   showPhotos(){
      this.showDivFun(1)
+     this.hideOtherSections('photosShowSection')
      this.photos=this.ps.getTrainerPhotos(this.trainer.slug)
 
    }
   showVideos(){
      this.showDivFun(2)
+     this.hideOtherSections('videosShowSection')
      this.videos=this.ps.getTrainerVideos(this.trainer.slug)
 
    }
   showWorkouts(){
      this.showDivFun(3)
+     this.hideOtherSections('workoutsShowSection')
+
      this.workouts=this.ps.getTrainerWorkouts(this.trainer.slug)
    }
   hideShowDiv(){
+    let d=document.getElementsByClassName('clicked')
+    if(d.length>0){
+            d[0].className='photoClass'
+     }
+  
     this.showDiv.nativeElement.style.display='none'
     let children= this.buttonsDiv.nativeElement.children
     for(let i=0; i<children.length;i++)

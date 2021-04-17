@@ -50,7 +50,9 @@ export class PostService {
 
    ]
    photos=['../../../assets/r2.jpg','../../../assets/r1.jpg','../../../assets/r3.jpg','../../../assets/r5.jpg',
-   '../../../assets/r5.jpg','../../../assets/r3.jpg','../../../assets/r4.jpg']
+   '../../../assets/r5.jpg','../../../assets/r3.jpg','../../../assets/r4.jpg',
+   '../../../assets/r5.jpg','../../../assets/r5.jpg','../../../assets/r4.jpg',
+    '../../../assets/r2.jpg','../../../assets/r1.jpg','../../../assets/r4.jpg']
 
   constructor(private httpClient:HttpClient) { }
 
