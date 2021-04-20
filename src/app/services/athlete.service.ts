@@ -8,6 +8,7 @@ export class AthleteService {
 
   constructor(private httpClient:HttpClient) { }
   
+  
   editProfile(data:any) {
     return this.httpClient.patch('https://peaceful-savannah-28414.herokuapp.com/' +'athlete/'+data.slug,data)
     
